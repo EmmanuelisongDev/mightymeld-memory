@@ -18,10 +18,19 @@ export const possibleTileContents = [
 
 export function StartScreen({ start }) {
   return (
-    <div>
-      <button onClick={start} className="bg-gray-400 text-white p-3">
-        Play
-      </button>
+    <div className="w-full relative h-screen">
+      <div className="w-[80%] md:w-[60%] lg:w-[40%] bg-[#fdf3f8] rounded-lg text-[#ec4899] text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-20">
+        <h1 className="text-3xl md:text-5xl lg:text-8xl font-bold">Memory</h1>
+        <p className="my-10 font-medium text-base sm:text-lg md:text-xl lg:text-3xl ">
+          Flip over tiles looking for pairs
+        </p>
+        <button
+          onClick={start}
+          className=" font-medium text-base sm:text-lg md:text-xl lg:text-3xl rounded-full bg-gradient-to-b from-[#f16baf] to-[#dc2c7a] text-white w-[30%] md:w-[20%] p-2 shadow-xl shadow-[#ccccc] hover:from-[#dc2c7a] hover:to-[#f16baf] transition ease-linear duration-100 delay-100"
+        >
+          Play
+        </button>
+      </div>
     </div>
   );
 }
@@ -109,12 +118,21 @@ export function PlayScreen({ end }) {
 
   return (
     <>
-      <div>
-        {getTiles(6).map((tile, i) => (
-          <Tile key={i} flip={() => flip(i)} {...tile} />
-        ))}
+      <div className="scale-75 md:scale-90 lg:scale-100 max-w-full flex flex-col gap-10 items-center justify-center h-screen ">
+        <h1 className="text-base sm:text-lg md:texxt-xl lg:text-3xl font-medium text-[#6466f1]">
+          {" "}
+          Tries
+          <span className="m1-2 bg-[#a5b4fc] px-2 rounded-lg py-1 text-[#6466f1]">
+            {tryCount}
+          </span>
+        </h1>
+
+        <div className="bg-[#eef2ff] p-4 rounded-lg grid grid-cols-4 gap-4 place-items-center m-0">
+          {getTiles(16).map((tile, i) => (
+            <Tile key={i} flip={() => flip(i)} {...tile} />
+          ))}
+        </div>
       </div>
-      {tryCount}
     </>
   );
 }
