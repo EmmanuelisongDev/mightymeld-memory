@@ -122,7 +122,7 @@ export function PlayScreen({ end }) {
         <h1 className="text-base sm:text-lg md:texxt-xl lg:text-3xl font-medium text-[#6466f1]">
           {" "}
           Tries
-          <span className="m1-2 bg-[#a5b4fc] px-2 rounded-lg py-1 text-[#6466f1]">
+          <span className="ml-2 bg-[#a5b4fc] px-2 rounded-lg py-1 text-[#6466f1]">
             {tryCount}
           </span>
         </h1>
